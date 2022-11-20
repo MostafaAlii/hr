@@ -33,7 +33,7 @@
                 </div>
                 <!-- Start Dashboard Link -->
                 <div class="menu-item">
-                    <a class="menu-link active" href="{{--route('admin.dashboard')--}}">
+                    <a class="menu-link active" href="{{route('admin.dashboard')}}">
                         <span class="menu-icon">
                             <i class="bi bi-grid fs-3"></i>
                         </span>
@@ -48,7 +48,7 @@
                         <span class="menu-icon">
                             <i class="bi bi-archive fs-3"></i>
                         </span>
-                        <span class="menu-title">الاعدادات</span>
+                        <span class="menu-title">{{trans('dashboard/sidebar.settings')}}</span>
                         <span class="menu-arrow"></span>
                     </span>
                     <div class="menu-sub menu-sub-accordion menu-active-bg">
@@ -57,16 +57,16 @@
                                 <span class="menu-bullet">
                                     <span class="bullet bullet-dot"></span>
                                 </span>
-                                <span class="menu-title">Profile</span>
+                                <span class="menu-title">{{trans('dashboard/sidebar.main_settings')}}</span>
                                 <span class="menu-arrow"></span>
                             </span>
                             <div class="menu-sub menu-sub-accordion menu-active-bg">
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo13/dist/pages/profile/overview.html">
+                                    <a class="menu-link" href="{{route('admin.main_settings')}}">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
-                                        <span class="menu-title">Overview</span>
+                                        <span class="menu-title">{{trans('dashboard/sidebar.main_settings')}}</span>
                                     </a>
                                 </div>
                                 <div class="menu-item">

@@ -18,13 +18,14 @@ Route::group(
 	'prefix' => LaravelLocalization::setLocale(),
 	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 ], function(){
-    Route::prefix('admin')->middleware('auth:admin')->group(function () {
-        Route::get('dashboard', [Auth\AdminAuthController::class, 'admin_dashboard'])->name('admin.dashboard');
+    Route::prefix('admin')->middleware('auth:admin')->as('admin.')->group(function () {
+        Route::get('dashboard', [Auth\AdminAuthController::class, 'admin_dashboard'])->name('dashboard');
+        Route::get('main_settings', [App\Http\Controllers\Dashboard\SettingController::class, 'main_settings'])->name('main_settings');
     });
 
     // Employee routes ::
-    Route::prefix('employee')->middleware('auth:employee')->group(function () {
-        Route::get('dashboard', [Auth\EmployeeAuthController::class, 'employee_dashboard'])->name('employee.dashboard');
+    Route::prefix('employee')->middleware('auth:employee')->as('employee.')->group(function () {
+        Route::get('dashboard', [Auth\EmployeeAuthController::class, 'employee_dashboard'])->name('dashboard');
     });
 
     require __DIR__.'/auth.php';
