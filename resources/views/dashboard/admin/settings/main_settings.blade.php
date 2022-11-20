@@ -26,7 +26,6 @@
                         <div class="card-body card-scroll min-h-380px">
                             <!-- Start Form -->
                             <form action="#"  method="post" enctype="multipart/form-data" id="update">
-
                                 <!-- Start basic information Row -->
                                 <div class="card-toolbar">
                                     <ul class="nav nav-tabs nav-line-tabs nav-stretch fs-6 border-0">
@@ -41,6 +40,7 @@
                                         </li>
                                     </ul>
                                 </div>
+
                                 <div class="card-body">
                                     <div class="tab-content" id="myTabContent">
                                         <!-- Start main_setting_information -->
@@ -48,7 +48,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <label for="exampleFormControlInput1" class="required form-label">{{ trans('dashboard/settings.email_address') }}</label>
-                                                    <input type="email" class="form-control form-control-solid" placeholder="{{ trans('dashboard/settings.type_website_email_address') }}"/>
+                                                    <input type="email" class="form-control form-control-solid" placeholder="{{ trans('dashboard/settings.type_website_email_address') }}" />
                                                 </div>
                                                 <div class="col-md-6">
                                                     <label for="exampleFormControlInput2" class="required form-label">{{ trans('dashboard/settings.phone_number') }}</label>
@@ -60,9 +60,8 @@
                                                 <div class="col-md-6">
                                                     <select class="form-select form-select-solid" aria-label="Select example">
                                                         <option>{{ trans('dashboard/settings.select_website_status') }}</option>
-                                                        <option value="1">One</option>
-                                                        <option value="2">Two</option>
-                                                        <option value="3">Three</option>
+                                                        <option value="{{SettingStatus::Active}}">{{ trans('dashboard/general.open') }}</option>
+                                                        <option value="{{SettingStatus::Inactive}}">{{ trans('dashboard/general.close') }}</option>
                                                     </select>
                                                 </div>
                                             </div>
@@ -70,7 +69,7 @@
                                             <div class="row">
                                                 <div class="col-md-6">
                                                     <div class="form-check form-check-custom form-check-solid form-check-sm">
-                                                        <input class="form-check-input" type="radio" value="" id="flexRadioSm"  />
+                                                        <input class="form-check-input" type="radio" value="{{SettingStatus::Maintenance}}" id="flexRadioSm"  />
                                                         <label class="form-check-label" for="flexRadioSm">
                                                             {{ trans('dashboard/settings.main_settings_maintenance_mode') }}
                                                         </label>
@@ -148,6 +147,7 @@
                                         </div>
                                         <!-- End main_setting_social_links -->
 
+                                        <!-- End Site Logo -->
                                         <div class="tab-pane fade" id="main_setting_picture" role="tabpanel">
                                             <div class="row mb-6">
                                                 <!--begin::Label-->
@@ -189,12 +189,11 @@
                                             </div>
                                         </div>
                                         <!-- End Site Logo -->
-                                        </div>
                                     </div>
                                 </div>
                                 <div class="card-footer d-flex justify-content-end py-6 px-9">
-                                    <button type="reset" class="btn btn-light btn-active-light-warning me-2">تراجع</button>
-                                    <button type="submit"  value="Submit" class="btn btn-primary">حفظ</button>
+                                    <button type="reset" class="btn btn-light btn-active-light-warning me-2">{{ trans('dashboard/general.back') }}</button>
+                                    <button type="submit"  value="Submit" class="btn btn-primary">{{ trans('dashboard/general.save') }}</button>
                                 </div>
                             </form>
                             <!-- End Form -->
@@ -208,4 +207,4 @@
 
         @section('js')
             <script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
-@endsection
+        @endsection
