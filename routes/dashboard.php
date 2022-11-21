@@ -1,5 +1,6 @@
 <?php
 use App\Http\Controllers\Auth;
+use App\Http\Controllers\Dashboard;
 use Illuminate\Support\Facades\Route;
 use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 /*
@@ -20,7 +21,7 @@ Route::group(
 ], function(){
     Route::prefix('admin')->middleware('auth:admin')->as('admin.')->group(function () {
         Route::get('dashboard', [Auth\AdminAuthController::class, 'admin_dashboard'])->name('dashboard');
-        Route::get('main_settings', [App\Http\Controllers\Dashboard\SettingController::class, 'main_settings'])->name('main_settings');
+        Route::get('main_settings', [Dashboard\SettingController::class, 'main_settings'])->name('main_settings');
     });
 
     // Employee routes ::

@@ -1,6 +1,7 @@
 <?php
 return [
     'main_setting_information'                  =>                      'الإعدادات و المعلومات الرئيسية',
+    'translation_and_language'                  =>                      'اللغة و الترجمة',
     'main_setting_social_links'                 =>                      'روابط التواصل ',
     'main_setting_picture'                      =>                      'الصورة الرئيسية',
     'main_settings_maintenance_mode'            =>                      'وضع الصيانة',
@@ -10,6 +11,7 @@ return [
     'phone_number'                              =>                      'رقم الهاتف',
     'type_website_phone_number'                 =>                      'أدخل رقم الهاتف للموقع',
     'select_website_status'                     =>                      'حدد حالة الموقع',
+    'main_setting_logo'                         =>                      'شعار الموقع',
     // Social Links ::
     'facebook_link'                             =>                      'رابط الفيسبوك',
     'type_facebook_account_name'                =>                      'أدخل اسم حساب الفيسبوك',
@@ -21,5 +23,14 @@ return [
     'type_youtube_channel_name'                 =>                      'أدخل اسم قناة اليوتيوب',
     'linkedIn_link'                             =>                      'رابط لينكد إن',
     'type_linkedIn_account_name'                =>                      'أدخل اسم حساب لينكد إن',
+    'app_name'                                  =>                      'اسم التطبيق',
+    'type_website_app_name'                     =>                      'أدخل اسم التطبيق',
+    'app_address'                               =>                      'عنوان التطبيق',
+    'type_website_app_address'                  =>                      'أدخل عنوان التطبيق',
+    'app_description'                           =>                      'وصف التطبيق',
+    'type_website_app_description'              =>                      'أدخل وصف التطبيق',
+    'app_maintenance_message'                   =>                      'رسالة صيانة التطبيق',
+    'type_website_app_maintenance_message'      =>                      'أدخل رسالة صيانة التطبيق',
+    'maintenance_mode_selected_alert'           =>                      'فى حاله وضع الصيانه يجب ترك الحاله كما هى وليس تغييرها',
 
 ];
