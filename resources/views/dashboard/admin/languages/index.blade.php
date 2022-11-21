@@ -25,44 +25,42 @@
                     <table class="table table-row-dashed table-striped table-hover table-borderd table-row-gray-300 align-middle gs-0 gy-4" style="border-collapse: collapse; border-spacing: 0; width: 100%;">
                         <thead>
                         <tr>
+                            <th class="min-w-5px">#</th>
                             <th>
                                 <label class="checkbox checkbox-lg checkbox-single">
                                     <input type="checkbox" value="1" name="checkbox" />
                                     <span></span>
                                 </label>
                             </th>
+                            <th>{{ trans('dashboard/language.language_code') }}</th>
                             <th>{{ trans('dashboard/language.language_name') }}</th>
                             <th>{{ trans('dashboard/language.language_status') }}</th>
-                            <th>{{ trans('dashboard/general.actions') }}</th>
                         </tr>
                         </thead>
                         <tbody>
                         @foreach($languages as $key => $language)
                             <tr>
+                                <td>{{ $loop->iteration }}</td>
                                 <td>
                                     <label class="checkbox checkbox-lg checkbox-single">
                                         <input type="checkbox" value="1" name="checkbox" />
                                         <span></span>
                                     </label>
                                 </td>
+                                <td>{{ $key }}</td>
                                 <td>{{$language['name'] . ' / ' . $language['native']}}</td>
                                 <td>
-                                    <span class="font-weight-bold badge badge-pill badge-{{ $language['status'] == 1 ? 'success' : 'danger'  }}">
-                                         {{ $language['status'] == 1 ? trans('dashboard/general.active') : trans('dashboard/general.inactive') }}
-                                    </span>
+                                    <div class="form-check form-switch form-check-custom form-check-solid">
+                                        <input class="form-check-input" type="checkbox" value="{{ $language['status'] == 1 ? 1 : 0  }}" id="{{$key}}" @if($language['status'] == 1) checked="checked" @endif  />
+                                        <label class="form-check-label" for="{{$key}}">
+                                            {{ $language['status'] == 1 ? trans('dashboard/general.active') : trans('dashboard/general.inactive') }}
+                                        </label>
+                                    </div>
                                 </td>
-                                <td>{{ trans('dashboard/general.actions') }}</td>
                             </tr>
                         @endforeach
-
                         </tbody>
                     </table>
-                    {{--@php
-                        echo $languages['ar']['native'];
-                    @endphp-
-                    @foreach($languages as $key => $language)
-                        <p>{{$language['native']}}</p>
-                    @endforeach--}}
                 </div>
             </div>
             <!--end::Body-->
