@@ -45,52 +45,66 @@
                                     <div class="tab-content" id="myTabContent">
                                         <!-- Start main_setting_information -->
                                         <div class="tab-pane fade show active" id="main_setting_information" role="tabpanel">
-                                            <!-- Start Translation Input -->
-                                            <h3>{{ trans('dashboard/settings.translation_and_language') }}</h3>
-                                            <div class="card-toolbar">
-                                                <ul class="nav nav-tabs nav-line-tabs nav-stretch fs-6 border-0">
-                                                    @foreach(config('laravellocalization.supportedLocales') as $key=>$lang)
-                                                    <li class="nav-item">
-                                                        <a class="nav-link @if($loop->index == 0) active @endif" id="{{$key}}-tab" data-bs-toggle="tab" href="#{{$key}}">{{$lang['native']}}</a>
-                                                    </li>
-                                                    @endforeach
-                                                </ul>
-                                            </div>
-                                            <div class="tab-content" id="myTabContent2">
-                                                @foreach(config('laravellocalization.supportedLocales') as $key=>$lang)
-                                                    <div class="tab-pane fade @if($loop->index == 0) show active @endif" id="{{$key}}" role="tabpanel" aria-labelledby="{{$key}}-tab">
-                                                    <div class="row pt-5">
-                                                        <div class="col-lg-6">
-                                                            <div class="mb-5">
-                                                                <label class="required form-label">{{ trans('dashboard/settings.app_name') . ' / ' . $lang['native'] }}</label>
-                                                                <input type="text" class="form-control form-control-solid" name="name" placeholder="{{ trans('dashboard/settings.type_website_app_name') . ' / ' . $lang['native'] }}" value="" />
+                                            <!-- Start Accordion -->
+                                            <div class="accordion" id="kt_accordion_1">
+                                                <div class="accordion-item">
+                                                    <h3 class="accordion-header" id="kt_accordion_1_header_1">
+                                                        <button class="accordion-button fs-4 fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#kt_accordion_1_body_1" aria-expanded="true" aria-controls="kt_accordion_1_body_1">
+                                                            {{ trans('dashboard/settings.translation_and_language') }}
+                                                        </button>
+                                                    </h3>
+                                                    <div id="kt_accordion_1_body_1" class="accordion-collapse collapse" aria-labelledby="kt_accordion_1_header_1" data-bs-parent="#kt_accordion_1">
+                                                        <div class="accordion-body">
+                                                            <!-- Start Translation Input -->
+                                                            <div class="card-toolbar">
+                                                                <ul class="nav nav-tabs nav-line-tabs nav-stretch fs-6 border-0">
+                                                                    @foreach(config('laravellocalization.supportedLocales') as $key=>$lang)
+                                                                        <li class="nav-item">
+                                                                            <a class="nav-link @if($loop->index == 0) active @endif" id="{{$key}}-tab" data-bs-toggle="tab" href="#{{$key}}">{{$lang['native']}}</a>
+                                                                        </li>
+                                                                    @endforeach
+                                                                </ul>
                                                             </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="mb-5">
-                                                                <label class="required form-label">{{ trans('dashboard/settings.app_address') . ' / ' . $lang['native'] }}</label>
-                                                                <input type="text" class="form-control form-control-solid" name="address" placeholder="{{ trans('dashboard/settings.type_website_app_address') . ' / ' . $lang['native'] }}" value="" />
+                                                            <div class="tab-content" id="myTabContent2">
+                                                                @foreach(config('laravellocalization.supportedLocales') as $key=>$lang)
+                                                                    <div class="tab-pane fade @if($loop->index == 0) show active @endif" id="{{$key}}" role="tabpanel" aria-labelledby="{{$key}}-tab">
+                                                                        <div class="row pt-5">
+                                                                            <div class="col-lg-6">
+                                                                                <div class="mb-5">
+                                                                                    <label class="required form-label">{{ trans('dashboard/settings.app_name') . ' / ' . $lang['native'] }}</label>
+                                                                                    <input type="text" class="form-control form-control-solid" name="name" placeholder="{{ trans('dashboard/settings.type_website_app_name') . ' / ' . $lang['native'] }}" value="" />
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-lg-6">
+                                                                                <div class="mb-5">
+                                                                                    <label class="required form-label">{{ trans('dashboard/settings.app_address') . ' / ' . $lang['native'] }}</label>
+                                                                                    <input type="text" class="form-control form-control-solid" name="address" placeholder="{{ trans('dashboard/settings.type_website_app_address') . ' / ' . $lang['native'] }}" value="" />
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                        <div class="row pt-5">
+                                                                            <div class="col-lg-6">
+                                                                                <div class="form-group mb-5">
+                                                                                    <label for="app_setting_description" class="required form-label">{{ trans('dashboard/settings.app_description') . ' / ' . $lang['native'] }}</label>
+                                                                                    <textarea class="form-control form-control-solid" name="description" id="app_setting_description" rows="3" placeholder="{{ trans('dashboard/settings.type_website_app_description') . ' / ' . $lang['native'] }}"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                            <div class="col-lg-6">
+                                                                                <div class="form-group mb-5">
+                                                                                    <label for="app_setting_maintenance_message" class="required form-label">{{ trans('dashboard/settings.app_maintenance_message') . ' / ' . $lang['native'] }}</label>
+                                                                                    <textarea class="form-control form-control-solid" name="maintenance_message" id="app_setting_maintenance_message" rows="3" placeholder="{{ trans('dashboard/settings.type_website_app_maintenance_message') . ' / ' . $lang['native'] }}"></textarea>
+                                                                                </div>
+                                                                            </div>
+                                                                        </div>
+                                                                    </div>
+                                                                @endforeach
                                                             </div>
-                                                        </div>
-                                                    </div>
-                                                    <div class="row pt-5">
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group mb-5">
-                                                                <label for="app_setting_description" class="required form-label">{{ trans('dashboard/settings.app_description') . ' / ' . $lang['native'] }}</label>
-                                                                <textarea class="form-control form-control-solid" name="description" id="app_setting_description" rows="3" placeholder="{{ trans('dashboard/settings.type_website_app_description') . ' / ' . $lang['native'] }}"></textarea>
-                                                            </div>
-                                                        </div>
-                                                        <div class="col-lg-6">
-                                                            <div class="form-group mb-5">
-                                                                <label for="app_setting_maintenance_message" class="required form-label">{{ trans('dashboard/settings.app_maintenance_message') . ' / ' . $lang['native'] }}</label>
-                                                                <textarea class="form-control form-control-solid" name="maintenance_message" id="app_setting_maintenance_message" rows="3" placeholder="{{ trans('dashboard/settings.type_website_app_maintenance_message') . ' / ' . $lang['native'] }}"></textarea>
-                                                            </div>
+                                                            <!-- End Translation Input -->
                                                         </div>
                                                     </div>
                                                 </div>
-                                                @endforeach
                                             </div>
-                                            <!-- End Translation Input -->
+                                            <!-- End Accordion -->
                                             <!-- Start Basic Input -->
                                             <div class="row pt-5">
                                                 <div class="col-md-6">
@@ -240,10 +254,12 @@
                                         <!-- End Site Logo -->
                                     </div>
                                 </div>
+                                <!-- Start Submit Button -->
                                 <div class="card-footer d-flex justify-content-end py-6 px-9">
                                     <button type="reset" class="btn btn-light btn-active-light-warning me-2">{{ trans('dashboard/general.back') }}</button>
                                     <button type="submit"  value="Submit" class="btn btn-primary">{{ trans('dashboard/general.save') }}</button>
                                 </div>
+                                <!-- End Submit Button -->
                             </form>
                             <!-- End Form -->
                         </div>
