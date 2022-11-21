@@ -130,18 +130,20 @@
             <div class="menu-sub menu-sub-dropdown w-175px py-4">
                 <!--begin::Menu item-->
                 @foreach(LaravelLocalization::getSupportedLocales() as $localeCode => $properties)
-                <div class="menu-item px-3">
-                    <a class="menu-link d-flex px-5 active" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
-                        <span class="symbol symbol-20px me-4">
-                            @if($properties['native'] == 'العربية')
-                                <img class="rounded-1" src="{{ asset('assets/dashboard/media/flags/egypt.svg') }}" />
-                            @elseif($properties['native'] == "English")
-                                <img class="rounded-1" src="{{ asset('assets/dashboard/media/flags/united-states.svg') }}" />
-                            @endif
-                        </span>
-                        {{ $properties['native'] }}
-                    </a>
-                </div>
+                    @if($properties['status'] == 1)
+                        <div class="menu-item px-3">
+                            <a class="menu-link d-flex px-5 active" rel="alternate" hreflang="{{ $localeCode }}" href="{{ LaravelLocalization::getLocalizedURL($localeCode, null, [], true) }}">
+                                <span class="symbol symbol-20px me-4">
+                                    @if($properties['native'] == 'العربية')
+                                        <img class="rounded-1" src="{{ asset('assets/dashboard/media/flags/egypt.svg') }}" />
+                                    @elseif($properties['native'] == "English")
+                                        <img class="rounded-1" src="{{ asset('assets/dashboard/media/flags/united-states.svg') }}" />
+                                    @endif
+                                </span>
+                                {{ $properties['native'] }}
+                            </a>
+                        </div>
+                    @endif
                 @endforeach
                 <!--end::Menu item-->
             </div>

@@ -16,12 +16,13 @@ use Mcamara\LaravelLocalization\Facades\LaravelLocalization;
 
 Route::group(
 [
-	'prefix' => LaravelLocalization::setLocale(),
+    'prefix' => LaravelLocalization::setLocale(),
 	'middleware' => [ 'localeSessionRedirect', 'localizationRedirect', 'localeViewPath' ]
 ], function(){
     Route::prefix('admin')->middleware('auth:admin')->as('admin.')->group(function () {
         Route::get('dashboard', [Auth\AdminAuthController::class, 'admin_dashboard'])->name('dashboard');
         Route::get('main_settings', [Dashboard\SettingController::class, 'main_settings'])->name('main_settings');
+        Route::get('languages', [Dashboard\LanguageController::class, 'index'])->name('languages');
     });
 
     // Employee routes ::

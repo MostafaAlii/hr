@@ -3,4 +3,5 @@ return [
     'dashboard'                     =>                  'الرئيسية',
     'settings'                      =>                  'الإعدادات',
     'main_settings'                 =>                  'الاعدادات العامه',
+    'languages'                     =>                  'اللغات',
 ];

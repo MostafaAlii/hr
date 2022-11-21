@@ -70,11 +70,11 @@
                                     </a>
                                 </div>
                                 <div class="menu-item">
-                                    <a class="menu-link" href="../../demo13/dist/pages/profile/projects.html">
+                                    <a class="menu-link" href="{{route('admin.languages')}}">
                                         <span class="menu-bullet">
                                             <span class="bullet bullet-dot"></span>
                                         </span>
-                                        <span class="menu-title">Projects</span>
+                                        <span class="menu-title">{{trans('dashboard/sidebar.languages')}}</span>
                                     </a>
                                 </div>
                                 <div class="menu-item">

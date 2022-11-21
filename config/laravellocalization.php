@@ -6,10 +6,10 @@ return [
     // These are sorted by the native name, which is the order you might show them in a language selector.
     // Regional languages are sorted by their base language, so "British English" sorts as "English, British"
     'supportedLocales' => [
-        'ar'          => ['name' => 'Arabic',                 'script' => 'Arab', 'native' => 'العربية', 'regional' => 'ar_AE'],
-        'en'          => ['name' => 'English',                'script' => 'Latn', 'native' => 'English', 'regional' => 'en_GB'],
-        //'ace'         => ['name' => 'Achinese',               'script' => 'Latn', 'native' => 'Aceh', 'regional' => ''],
-        //'af'          => ['name' => 'Afrikaans',              'script' => 'Latn', 'native' => 'Afrikaans', 'regional' => 'af_ZA'],
+        'ar'          => ['name' => 'Arabic',                 'script' => 'Arab','status' => 1, 'native' => 'العربية', 'regional' => 'ar_AE'],
+        'en'          => ['name' => 'English',                'script' => 'Latn', 'status' => 1, 'native' => 'English', 'regional' => 'en_GB'],
+        'ace'         => ['name' => 'Achinese',               'script' => 'Latn','status' => 0, 'native' => 'Aceh', 'regional' => ''],
+        'af'          => ['name' => 'Afrikaans',              'script' => 'Latn', 'status' => 0, 'native' => 'Afrikaans', 'regional' => 'af_ZA'],
         //'agq'         => ['name' => 'Aghem',                  'script' => 'Latn', 'native' => 'Aghem', 'regional' => ''],
         //'ak'          => ['name' => 'Akan',                   'script' => 'Latn', 'native' => 'Akan', 'regional' => 'ak_GH'],
         //'an'          => ['name' => 'Aragonese',              'script' => 'Latn', 'native' => 'aragonés', 'regional' => 'an_ES'],
@@ -326,7 +326,7 @@ return [
     // If `useAcceptLanguageHeader` is true, then the first time
     // the locale will be determined from browser and redirect to that language.
     // After that, `hideDefaultLocaleInURL` behaves as usual.
-    'hideDefaultLocaleInURL' => false,
+    'hideDefaultLocaleInURL' => true,
 
     // If you want to display the locales in particular order in the language selector you should write the order here.
     //CAUTION: Please consider using the appropriate locale code otherwise it will not work

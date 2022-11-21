@@ -59,9 +59,11 @@
                                                             <div class="card-toolbar">
                                                                 <ul class="nav nav-tabs nav-line-tabs nav-stretch fs-6 border-0">
                                                                     @foreach(config('laravellocalization.supportedLocales') as $key=>$lang)
-                                                                        <li class="nav-item">
-                                                                            <a class="nav-link @if($loop->index == 0) active @endif" id="{{$key}}-tab" data-bs-toggle="tab" href="#{{$key}}">{{$lang['native']}}</a>
-                                                                        </li>
+                                                                        @if($lang['status'] == 1)
+                                                                            <li class="nav-item">
+                                                                                <a class="nav-link @if($loop->index == 0) active @endif" id="{{$key}}-tab" data-bs-toggle="tab" href="#{{$key}}">{{$lang['native']}}</a>
+                                                                            </li>
+                                                                        @endif
                                                                     @endforeach
                                                                 </ul>
                                                             </div>
