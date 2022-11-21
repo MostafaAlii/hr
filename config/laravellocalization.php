@@ -1,5 +1,4 @@
 <?php
-
 return [
 
     // Uncomment the languages that your site supports - or add new ones.
